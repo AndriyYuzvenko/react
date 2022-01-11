@@ -1,0 +1,16 @@
+.launche {
+    border: 4px solid black;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+img{
+    max-height: 256px;
+}
