@@ -1,0 +1,7 @@
+.posts {
+    overflow: scroll;
+    height: 500px;
+    padding-left: 20px;
+    background-color: darkred;
+    width: 50%;
+}

@@ -1,0 +1,6 @@
+.users {
+    overflow: scroll;
+    padding-left: 20px;
+    height: 500px;
+    width: 50%;
+}
