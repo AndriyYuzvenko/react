@@ -9,20 +9,16 @@ const Launches = () => {
     useEffect(() => {
         fetch('https://api.spacexdata.com/v3/launches/')
             .then(item => item.json())
-            .then(item => setLaunches(item))
+            .then(item => setLaunches(item.filter(item => item.launch_year !== '2020')))
     }, [])
 
     return (
 
         <div className={'launches'}>
 
-            {launches.map(item => {
-                    if (item.launch_year !== '2020') {
-                        return (<Launche key={item.flight_number} mission_name={item.mission_name}
-                                         launch_year={item.launch_year}
-                                         mission_patch_small={item.links.mission_patch_small}/>)
-                    }
-                }
+            {launches.map(item => <Launche key={item.flight_number} mission_name={item.mission_name}
+                                           launch_year={item.launch_year}
+                                           mission_patch_small={item.links.mission_patch_small}/>
             )}
 
         </div>
