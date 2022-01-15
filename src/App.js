@@ -1,25 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import Forms from "./components/Forms/Forms";
+import Users from "./components/Users/Users";
+import {usersService} from "./service/user.service";
+import {useEffect, useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [users, setUsers] = useState([])
+    const [filterUsers, setFilterUsers] = useState([])
+    useEffect(() => {
+        usersService.getUsers()
+            .then(item => {
+                setUsers(item)
+                setFilterUsers(item)
+            })
+    }, [])
+    const getFilter = (item) => {
+        let filterArray = [...users]
+        console.log(item)
+        if (item.name) {
+            filterArray = filterArray.filter(user => user.name.toLowerCase().includes(item.name.toLowerCase()))
+        }
+        if (item.username) {
+            filterArray = filterArray.filter(user => user.username.toLowerCase().includes(item.username.toLowerCase()))
+        }
+        if (item.email) {
+            filterArray = filterArray.filter(user => user.email.toLowerCase().includes(item.email.toLowerCase()))
+        }
+        setFilterUsers(filterArray)
+    }
+    return (
+        <div className="App">
+            <Forms getFilter={getFilter}/>
+            <Users users={filterUsers}/>
+        </div>
+    );
 }
 
 export default App;
