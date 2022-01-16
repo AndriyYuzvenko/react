@@ -10,12 +10,12 @@ const Form = ({upDate}) => {
         resolver: joiResolver(CarsValidation),
         mode: 'onTouched'
     });
-    const [form,setForm]=useState({})
+    const [form, setForm] = useState({})
     const submit = async (car) => {
-        try{
-            const newCar= await carsService.CarsService.create(car)
+        try {
+            const newCar = await carsService.CarsService.create(car)
             upDate(newCar)
-        }catch (error){
+        } catch (error) {
             setForm(error.response.data)
         }
     }
