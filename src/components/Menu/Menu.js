@@ -8,9 +8,8 @@ const Menu = () => {
         <div className={'menu'}>
             <NavLink to={'/'}>Home</NavLink>
             <NavLink to={'/users'}>Users</NavLink>
-            <NavLink to={'/posts'}>Posts</NavLink>
         </div>
-            <Outlet/>
+            {<Outlet/>}
         </>
     );
 };

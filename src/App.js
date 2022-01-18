@@ -14,9 +14,10 @@ function App() {
                 <Route path={'/'} element={<Menu/>}>
                     <Route index element={<HomePage/>}/>
                     <Route path={'users'} element={<UsersPage/>}>
-                        <Route path={':id'} element={<UserDetailsPage/>}/>
+                        <Route path={':id'} element={<UserDetailsPage/>}>
+                            <Route path={'posts'} element={<PostsPage/>}/>
+                        </Route>
                     </Route>
-                    <Route path={'posts'} element={<PostsPage/>}/>
                 </Route>
             </Routes>
         </div>

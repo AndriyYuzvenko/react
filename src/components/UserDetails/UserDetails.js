@@ -1,11 +1,11 @@
 import React from 'react';
+import PostsPage from "../../pages/PostsPage/PostsPage";
+import {Link} from "react-router-dom";
 
 const UserDetails = (props) => {
     const {
         user: {
-            id,
-            name,
-            username,
+            id, name, username,
             email,
             address: {street, suite, city, zipcode, geo: {lat, lng}},
             phone,
@@ -45,6 +45,9 @@ const UserDetails = (props) => {
                     </ul>
                 </li>
             </ul>
+            <Link to={'posts'}>
+                <button>All posts</button>
+            </Link>
         </div>
     );
 };
