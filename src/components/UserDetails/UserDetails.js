@@ -11,7 +11,7 @@ const UserDetails = (props) => {
             phone,
             website,
             company
-        }
+        },
     } = props
     return (
         <div>

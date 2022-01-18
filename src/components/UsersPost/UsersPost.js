@@ -1,12 +1,14 @@
 import React from 'react';
 
 const UsersPost = (props) => {
-    const {post: {id, title}} = props
+    const {post: {userId,id, title,body}} = props
     return (
         <div>
             <ul>
-                <li>{id}</li>
-                <li>{title}</li>
+                <li>userId: {userId}</li>
+                <li>id: {id}</li>
+                <li>title: {title}</li>
+                <li>body: {body}</li>
             </ul>
         </div>
     );
