@@ -1,9 +1,9 @@
 import React from 'react';
 
 const UsersPost = (props) => {
-    const {post: {userId,id, title,body}} = props
+    const {post: {userId, id, title, body}} = props
     return (
-        <div>
+        <div className={'posts'}>
             <ul>
                 <li>userId: {userId}</li>
                 <li>id: {id}</li>

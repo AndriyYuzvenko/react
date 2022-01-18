@@ -2,6 +2,7 @@
     width: 50%;
     background-color: silver;
     border: 2px solid black;
+    max-height: 400px;
 }
 .allUsers{
     display: flex;

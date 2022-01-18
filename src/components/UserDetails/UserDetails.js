@@ -1,5 +1,4 @@
 import React from 'react';
-import PostsPage from "../../pages/PostsPage/PostsPage";
 import {Link} from "react-router-dom";
 
 const UserDetails = (props) => {
@@ -45,6 +44,7 @@ const UserDetails = (props) => {
                     </ul>
                 </li>
             </ul>
+            <hr/>
             <Link to={'posts'}>
                 <button>All posts</button>
             </Link>

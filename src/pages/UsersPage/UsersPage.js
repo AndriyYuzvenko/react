@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import {Outlet} from "react-router-dom";
+
 import usersService from "../../service/users.service/users.service";
 import User from "../../components/User/User";
-import {Outlet} from "react-router-dom";
 import './UsersPage.css'
 
 const UsersPage = () => {
@@ -13,11 +14,11 @@ const UsersPage = () => {
     }, [])
 
     return (
-            <div className={'allUsers'}>
-                <div className={'users'}>
-                    {users.map(user => <User key={user.id} user={user}/>)}</div>
-                <Outlet/>
-            </div>
+        <div className={'allUsers'}>
+            <div className={'users'}>
+                {users.map(user => <User key={user.id} user={user}/>)}</div>
+            <Outlet/>
+        </div>
     );
 };
 
