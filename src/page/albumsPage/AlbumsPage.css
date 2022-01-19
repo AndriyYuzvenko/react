@@ -1,0 +1,9 @@
+.album,.photos {
+    border: 2px solid black;
+}
+.album{
+    background-color: #6b8abd;
+}
+.photos{
+    background-color: #67b62f;
+}

@@ -1,0 +1,14 @@
+.content {
+    display: flex;
+}
+
+.users {
+    width: 50%;
+    background-color: silver;
+    border: 2px solid black;
+    max-height: 1138px;
+}
+
+.albums {
+    width: 50%;
+}
