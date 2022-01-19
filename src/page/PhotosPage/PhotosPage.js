@@ -5,7 +5,7 @@ import photosService from "../../service/photos.service/photos.service";
 import Photo from "../../components/Photo/Photo";
 
 const PhotosPage = () => {
-    const {id} = useParams()
+    const {albumId} = useParams()
     const [photos, setPhotos] = useState([])
     useEffect(() => {
         photosService.getAll()
@@ -13,7 +13,7 @@ const PhotosPage = () => {
     }, [])
     return (
         <div className={'photos'}>
-            {photos.filter(item => item.albumId == id).map(photo => <Photo key={photo.id} photo={photo}/>)}
+            {photos.filter(item => item.albumId == albumId).map(photo => <Photo key={photo.id} photo={photo}/>)}
         </div>
     );
 };

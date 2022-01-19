@@ -9,7 +9,7 @@ const Album = (props) => {
                 <li>userId: {userId}</li>
                 <li>id: {id}</li>
                 <li>title: {title}</li>
-                <li><Link to={'albums'}>
+                <li><Link to={`${id.toString()}/photos`}>
                     <button>All photos</button>
                 </Link></li>
             </ul>

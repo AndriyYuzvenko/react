@@ -1,9 +1,11 @@
-.album,.photos {
+.album, .photos {
     border: 2px solid black;
 }
-.album{
+
+.album {
     background-color: #6b8abd;
 }
-.photos{
+
+.photos {
     background-color: #67b62f;
 }

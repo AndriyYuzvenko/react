@@ -13,7 +13,6 @@ const AlbumsPage = () => {
         albumsService.getAll()
             .then(item => setAlbums([...item]))
     }, [])
-    console.log(id)
     return (
         <div className={'contentAlbums'}>
             <div className={'album'}>

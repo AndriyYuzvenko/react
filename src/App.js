@@ -1,9 +1,9 @@
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import Menu from "./components/menu/menu";
-import HomePage from "./page/homePage/homePage";
-import UsersPage from "./page/usersPage/usersPage";
-import AlbumsPage from "./page/albumsPage/albumsPage";
+import Menu from "./components/Menu/Menu";
+import HomePage from "./page/HomePage/HomePage";
+import UsersPage from "./page/UsersPage/UsersPage";
+import AlbumsPage from "./page/AlbumsPage/AlbumsPage";
 import PhotosPage from "./page/PhotosPage/PhotosPage";
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
                 <Route path={'/'} element={<Menu/>}>
                     <Route index element={<HomePage/>}/>
                     <Route path={'users'} element={<UsersPage/>}>
-                        <Route path={':id'} element={<AlbumsPage/>}>
-                            <Route path={'albums'} element={<PhotosPage/>}/>
+                        <Route path={':id/albums'} element={<AlbumsPage/>}>
+                            <Route path={':albumId/photos'} element={<PhotosPage/>}/>
                         </Route>
                     </Route>
                 </Route>

@@ -9,7 +9,7 @@ const User = (props) => {
                 <li>id: {id}</li>
                 <li>name: {name}</li>
                 <li>username: {username}</li>
-                <li><Link to={id.toString()}>
+                <li><Link to={`${id.toString()}/albums`}>
                     <button>All albums</button>
                 </Link></li>
             </ul>
