@@ -1,8 +1,9 @@
-import './App.css';
 import {Route, Routes} from "react-router-dom";
+
 import Menu from "./page/Menu/Menu";
 import EpisodePage from "./page/EpisodePage/EpisodePage";
 import CharactersPAge from "./page/CharactersPage/CharactersPAge";
+import './App.css';
 
 function App() {
     return (
