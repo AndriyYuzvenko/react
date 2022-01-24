@@ -1,25 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import Menu from "./page/Menu/Menu";
+import EpisodePage from "./page/EpisodePage/EpisodePage";
+import CharactersPAge from "./page/CharactersPage/CharactersPAge";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Routes>
+                <Route path={'/'} element={<Menu/>}>
+                    <Route index element={<EpisodePage/>}/>
+                    <Route path={`episode/:id`} element={<CharactersPAge/>}/>
+                </Route>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
