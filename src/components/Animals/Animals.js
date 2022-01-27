@@ -4,7 +4,8 @@ import React, {useReducer, useState} from 'react';
 
 const renders = (animals,action) => {
     switch (action.type){
-        case cats:
+        case 'inc':
+            return {...animals,cat.a}
 
     }
 }
