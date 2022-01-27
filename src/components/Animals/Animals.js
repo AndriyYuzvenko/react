@@ -4,7 +4,7 @@ import React, {useReducer, useState} from 'react';
 
 const renders = (animals,action) => {
     switch (action.type){
-        case:
+        case cats:
 
     }
 }
@@ -14,13 +14,15 @@ const Animals = () => {
     const save = (e) => {
         dispatch({...animals, [e.target.name]: e.target.value})
     }
-    const submit=(e)=>{
+
+    const cats=(e)=>{
         e.preventDefault()
         console.log(animals)
+        dispatch({type:'inc'})
     }
     return (
         <div>
-            <form onSubmit={submit}>
+            <form onSubmit={cats}>
                 <label>Cat:<input type="text" value={animals.cat} name={'cat'} onChange={save}/></label>
                 <button>Save</button>
             </form>
