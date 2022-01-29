@@ -1,0 +1,24 @@
+.forms, .animals {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.animals div {
+    margin: 10px 30px;
+}
+
+.animals div div {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+form {
+    margin: 10px;
+}

@@ -1,81 +1,65 @@
 import React, {useReducer} from 'react';
+import {useForm} from 'react-hook-form'
 
-const renders = (animals, action) => {
+import Cats from "../Cats/Cats";
+import Dogs from "../Dogs/Dogs";
+
+const render = (animal, action) => {
     switch (action.type) {
-        case 'xxx':
-            return {...animals, [action.field]: action.payload}
-
-        default:
-            return animals
+        case 'allAnimal':
+            return [...animal, action.objAnimals]
+        case 'getId':
+            return animal.filter(animal => animal.id !== action.getById)
     }
-}
-const catAndDog = {
-    cat: '', dog: ''
+
 }
 const Animals = () => {
-
-    const [animals, dispatch] = useReducer(renders, catAndDog)
-
-    const save = (e) => {
+    const {handleSubmit, register, reset} = useForm()
+    const [animal, dispatch] = useReducer(render, [])
+    const allAnimal = (e) => {
         dispatch({
-            type: 'xxx',
-            field: e.target.name,
-            payload: e.target.value
+            type: 'allAnimal',
+            objAnimals: {id: Date.now(), ...e}
         })
+        reset()
     }
-    const animalCat = (e) => {
-        e.preventDefault()
-        console.log(animals)
-    }
-    const animalDog = (e) => {
-        e.preventDefault()
-        console.log(animals)
+    const getId = (id) => {
+        dispatch({
+            type: 'getId',
+            getById: id
+        })
     }
     return (
         <div>
-            <form onSubmit={animalCat}>
-                <label>Cat:<input type="text" value={animals.cat} name={'cat'} onChange={save}/></label>
-                <button>Save</button>
-            </form>2
-            <form onSubmit={animalDog}>
-                <label>Dog:<input type="text" value={animals.dog} name={'dog'} onChange={save}/></label>
-                <button>Save</button>
-            </form>
+            <div className={'forms'}>
+                <form onSubmit={handleSubmit(allAnimal)}>
+                    <label>Cat:<input type="text" {...register('cat')}/></label>
+                    <button>Save</button>
+                </form>
+                <form onSubmit={handleSubmit(allAnimal)}>
+                    <label>Dog:<input type="text" {...register('dog')}/></label>
+                    <button>Save</button>
+                </form>
+            </div>
             <hr/>
-            <p>{animals.cat}</p>
-            <p>{animals.dog}</p>
+            <div className={'animals'}>
+                <div>
+                    {
+                        animal.filter(item => item.cat !== '').map(cat =>
+                            <Cats key={cat.id} cat={cat} getId={getId}/>
+                        )
+                    }
+                </div>
+                <div>
+                    {
+                        animal.filter(item => item.dog !== '').map(dog =>
+                            <Dogs key={dog.id} dog={dog} getId={getId}/>
+                        )
+                    }
+                </div>
+            </div>
         </div>
     );
 };
 
 export default Animals;
-
-// import React, {useState} from 'react';
-//
-//
-// const Animals = () => {
-//     const [cats, setCats] = useState([])
-//     const [a, setA] = useState({cat: ''})
-//     const animal = (e) => {
-//         setA({...a, [e.target.name]: e.target.value})
-//     }
-//
-//     const submit = (e) => {
-//         e.preventDefault()
-//         setCats([...cats, a])
-//
-//     }
-//     console.log(cats)
-//     return (
-//         <div>
-//             <form onSubmit={submit}>
-//                 <label>Cat:<input type="text" name={'cat'} onChange={animal}/></label>
-//                 <button>Save</button>
-//             </form>
-//             <hr/>
-//             <p>{cats.cat}</p>
-//         </div>
-//     );
-// };
-//
-// export default Animals;
