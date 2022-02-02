@@ -1,17 +1,17 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 
-import {deleteTodo} from '../../store/tode.splice';
+import {deleteTodo, todoChecked} from '../../store/tode.splice';
 
 const Todo = (props) => {
-    const {todo: {id, todo}} = props;
+    const {todo: {id, todo, status}} = props;
     const dispatch = useDispatch()
     return (
         <div>
             <div className={'oneTodo'}>
                 <label>
-                    <input type="checkbox"/>
-                    <h2>{todo}</h2>
+                    <input type="checkbox" value={status} onChange={() => dispatch(todoChecked({id}))}/>
+                    <h2 className={status ? 'todo' : ''}>{todo}</h2>
                 </label>
                 <button onClick={() => dispatch(deleteTodo({id}))} className={'button'}>delete</button>
             </div>

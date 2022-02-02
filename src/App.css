@@ -4,6 +4,11 @@
     align-items: center;
 }
 
+.totoLength {
+    display: flex;
+    justify-content: center;
+}
+
 .button {
     margin: 5px;
     height: 30px;
@@ -15,10 +20,6 @@
     justify-content: center;
 }
 
-input[type='checkbox']:checked ~ h2 {
+.todo {
     text-decoration: line-through;
-}
-
-input[type='checkbox'] ~ h2 {
-    text-decoration: none
 }
